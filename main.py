@@ -1,4 +1,5 @@
 from keras.datasets import mnist
+from matplotlib import pyplot
 from sklearn import neighbors
 from sklearn import metrics
 from tensorflow.python.keras.utils.np_utils import to_categorical
@@ -7,6 +8,11 @@ import pickle
 data = mnist.load_data()
 # print(data)
 (X_train, y_train), (X_test, y_test) = data
+
+for i in range(2):
+    pyplot.subplot(330 + 1 + i)
+    pyplot.imshow(X_train[i], cmap=pyplot.get_cmap('gray'))
+    pyplot.show()
 
 # reshape(6000, 28 * 28)
 print(X_train.shape)
@@ -17,10 +23,7 @@ print(X_train.shape)
 y_train = to_categorical(y_train)
 y_test = to_categorical(y_test)
 
-# for i in range(9):
-#    pyplot.subplot(330 + 1 + i)
-#    pyplot.imshow(train_X[i], cmap=pyplot.get_cmap('gray'))
-#    pyplot.show()
+
 
 model = neighbors.KNeighborsClassifier(n_neighbors=5)
 
