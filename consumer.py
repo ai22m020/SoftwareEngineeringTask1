@@ -33,7 +33,5 @@ avgPixel = np.average(shaped)
 
 # output prediction
 predictions = loaded_model.predict([shaped])
-for index, score in enumerate(predictions[0]):
-    if score == 1:
-        print('Actual number:', actualValue, ', prediction of knn model with k=', usedK, ' is:', index,
-              '. Average pixel darkness (out of 255):', avgPixel, ', Inverted:', inverted)
+print('Actual number:', actualValue, ', prediction of knn model with k=', usedK, ' is:', predictions[0],
+      '. Average pixel darkness (out of 255):', avgPixel, ', Inverted:', inverted)
