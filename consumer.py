@@ -10,7 +10,6 @@ import sys
 width = 28
 height = 28
 greyscale_limit = 128
-actualValue = 4
 usedK = 5
 
 # load the model from disk
@@ -40,7 +39,6 @@ shaped = np.reshape(np.array(myImage), (width * height))
 
 avgPixel = np.average(shaped)
 
-
 # plot image
 pyplot.imshow(myImage, cmap=pyplot.get_cmap('gray'))
 pyplot.show()
@@ -50,5 +48,5 @@ predictions = loaded_model.predict([shaped])
 
 for id, score in enumerate(predictions[0]):
     if score == 1:
-        print('Actual number:', actualValue,', prediction of knn model with k=', usedK, ' is:', id,'. Average pixel '
-                'darkness (out of 255):', avgPixel,', Inverted:', inverted)
+        print('Prediction of knn model with k=', usedK, ' is:', id, '. Average pixel '
+                'darkness (out of 255):', avgPixel, ', Inverted:', inverted)
