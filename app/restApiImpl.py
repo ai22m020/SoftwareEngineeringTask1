@@ -3,9 +3,7 @@ import json
 from fastapi import FastAPI, UploadFile
 from fastapi.params import File
 import os
-import consumer
-
-
+import app.consumer as consumer
 app = FastAPI()
 user = 'default'
 

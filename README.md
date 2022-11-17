@@ -7,3 +7,11 @@
 
 Start the server:
 uvicorn restApiImpl:app --reload
+
+
+# docker
+
+```
+docker build .
+
+```
